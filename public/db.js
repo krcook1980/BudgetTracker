@@ -3,7 +3,7 @@ const request = indexedDB.open("budget", 1)
 
 request.onupgradeneeded = function(event) {
 const db = event.target.result;
-db.createObjectStore("pending", {autoIncrement: true})
+db.createObjectStore("pending", { autoIncrement: true });
 };
 
 request.onsuccess = function(event){
@@ -14,7 +14,7 @@ request.onsuccess = function(event){
 };
 
 request.onerror = function(event){
-    console.log("Uh Oh "+ event.target.errorCode);
+    console.log(event.target.errorCode);
 };
 
 function saveRecord(record){
@@ -38,7 +38,8 @@ function checkDatabase() {
                     "Content-Type": "application/json"
                 } 
             })
-            .then(response => {
+            .then(response => response.json())
+            .then(() => {
                 const transaction = db.transaction(["pending"], "readwrite");
                 const store = transaction.objectStore("pending");
                 store.clear();

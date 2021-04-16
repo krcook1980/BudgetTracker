@@ -14,12 +14,12 @@ const FILES_TO_CACHE = [
 //this installs the service worker
 self.addEventListener("install", function (evt) {
     evt.waitUntil(
-        caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/images"))
+        caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/transaction"))
     );
     self.skipWaiting();
 });
 
-self.addEventListenter("activate", function (evt) {
+self.addEventListener("activate", function (evt) {
     evt.waitUntil(
         caches.keys().then(keyList => {
             return Promise.all(

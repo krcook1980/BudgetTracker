@@ -31,6 +31,7 @@
   - [Stackoverflow](https://stackoverflow.com/) 
   - [Coolors.co](https://coolors.co) for the color palette
   - [Mongoose](https://mongoosejs.com/) 
+  - Bootcamp Week 17 Activity 26
   - Front end code and public folder provided by bootcamp, css modified to personalize the assignment.
 
   ## Questions
